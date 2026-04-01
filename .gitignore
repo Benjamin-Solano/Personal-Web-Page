@@ -1,0 +1,22 @@
+# Crear el archivo en la raíz del proyecto
+```
+
+Creá un archivo llamado `.gitignore` con este contenido:
+```
+node_modules/
+dist/
+.env
+.DS_Store
+*.local
+```
+
+**2. Entender el flujo correcto:**
+
+Cuando alguien clona tu repositorio, `node_modules` **no** se incluye. Solo sube el código fuente. Quien descargue el proyecto corre `npm install` y Node regenera la carpeta automáticamente a partir de `package.json`.
+```
+Lo que va a GitHub:          Lo que NO va a GitHub:
+✓ src/                       ✗ node_modules/   (~200MB)
+✓ package.json               ✗ dist/           (build)
+✓ tailwind.config.js
+✓ index.html
+etc.
