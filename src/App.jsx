@@ -36,9 +36,9 @@ export default function App() {
         <Contact />
       </main>
       <footer className="section-wrapper py-8 divider">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 opacity-30 text-2xs tracking-widest2 uppercase">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 opacity-50 text-2xs tracking-widest2 uppercase">
           <span>Benjamín Alexander Solano Ortega</span>
-          <span>© 2025 — Todos los derechos reservados</span>
+          <span>© {new Date().getFullYear()} — Todos los derechos reservados.</span>
         </div>
       </footer>
     </div>

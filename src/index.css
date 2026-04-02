@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  /* Neobrutalism CSS variables — update in .dark for dark mode */
+  :root {
+    --b-border: 1.5px solid #0a0908;
+    --b-shadow-sm: 2px 2px 0px 0px #0a0908;
+    --b-shadow:    4px 4px 0px 0px #0a0908;
+    --b-shadow-lg: 6px 6px 0px 0px #0a0908;
+  }
+  .dark {
+    --b-border: 1.5px solid #f0ede8;
+    --b-shadow-sm: 2px 2px 0px 0px #f0ede8;
+    --b-shadow:    4px 4px 0px 0px #f0ede8;
+    --b-shadow-lg: 6px 6px 0px 0px #f0ede8;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -12,55 +26,116 @@
   }
 
   ::selection {
-    @apply bg-gold-400 text-ink-900;
+    background-color: #0a0908;
+    color: #faf8f5;
+  }
+  .dark ::selection {
+    background-color: #faf8f5;
+    color: #0a0908;
   }
 
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-cream-200 dark:bg-ink-800;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-ink-300 dark:bg-ink-500;
-  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { @apply bg-cream-200 dark:bg-ink-800; }
+  ::-webkit-scrollbar-thumb { @apply bg-ink-900 dark:bg-cream-100; }
 }
 
 @layer components {
+  .section-px {
+    @apply px-6 md:px-16 lg:px-24;
+  }
+
   .section-wrapper {
-    @apply px-6 md:px-16 lg:px-24 py-24;
+    @apply section-px py-24;
   }
 
+  /* ── Brutalist containers ──────────────────────────── */
+
+  /* Full offset shadow */
+  .brutal-card {
+    border: var(--b-border);
+    box-shadow: var(--b-shadow);
+  }
+
+  /* Small offset shadow */
+  .brutal-card-sm {
+    border: var(--b-border);
+    box-shadow: var(--b-shadow-sm);
+  }
+
+  /* Interactive press effect — combine with brutal-card / brutal-card-sm */
+  .brutal-press {
+    transition: transform 80ms ease, box-shadow 80ms ease;
+  }
+  .brutal-press:hover {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+  .brutal-press:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+
+  /* ── Buttons ───────────────────────────────────────── */
+
+  .btn-brutal {
+    @apply inline-flex items-center gap-2 px-5 py-2.5
+           text-xs tracking-widest2 uppercase font-medium
+           bg-cream-100 dark:bg-ink-900;
+    border: var(--b-border);
+    box-shadow: var(--b-shadow-sm);
+    transition: transform 80ms ease, box-shadow 80ms ease;
+  }
+  .btn-brutal:hover {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+  .btn-brutal:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+
+  .btn-brutal-lg {
+    @apply btn-brutal px-8 py-4 text-sm;
+  }
+
+  /* ── Section header elements ───────────────────────── */
+
+  /* Bordered inline tag — used in section headers */
+  .section-tag {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1
+           text-2xs font-mono tracking-widest2 uppercase;
+    border: var(--b-border);
+  }
+
+  /* Plain metadata label */
   .section-label {
-    @apply text-2xs font-mono tracking-widest2 uppercase opacity-40 mb-1;
+    @apply text-2xs font-mono tracking-widest2 uppercase opacity-50;
   }
 
-  .section-number {
-    @apply font-display text-[18vw] md:text-[12vw] leading-none tracking-tight
-           text-ink-100 dark:text-ink-700 select-none pointer-events-none;
-  }
-
+  /* Thick horizontal rule */
   .divider {
-    @apply border-t border-ink-900/10 dark:border-cream-50/10;
+    @apply border-t-2 border-ink-900 dark:border-cream-100;
   }
 
-  .link-arrow {
-    @apply inline-flex items-center gap-1 text-xs tracking-widest2 uppercase
-           opacity-60 hover:opacity-100 transition-opacity duration-200
-           border-b border-current pb-px;
+  /* Column label with left accent bar */
+  .col-label {
+    @apply text-2xs tracking-widest2 uppercase opacity-50 mb-4
+           border-l-2 border-ink-900 dark:border-cream-100 pl-3;
   }
 
-  .btn-outline {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 text-xs tracking-widest2 uppercase
-           border border-ink-900/20 dark:border-cream-50/20
-           hover:bg-ink-900 hover:text-cream-50
-           dark:hover:bg-cream-50 dark:hover:text-ink-900
-           transition-all duration-200;
-  }
+  /* ── Misc components ───────────────────────────────── */
 
   .tag-pill {
-    @apply text-2xs tracking-widest uppercase px-3 py-1
-           border border-ink-900/15 dark:border-cream-50/15
-           text-ink-400 dark:text-cream-400;
+    @apply text-2xs tracking-widest uppercase px-3 py-1;
+    border: var(--b-border);
   }
+
+  /* Segmented progress bars */
+  .bar-filled { @apply bg-ink-900 dark:bg-cream-50; }
+  .bar-empty  { @apply bg-ink-200 dark:bg-ink-700;  }
+
+  /* Experience type labels */
+  .type-work        { @apply text-ink-900 dark:text-cream-50 font-medium; }
+  .type-achievement { @apply text-ink-500 dark:text-cream-400; }
+  .type-project     { @apply text-ink-400 dark:text-cream-500; }
 }

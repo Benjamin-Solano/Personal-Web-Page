@@ -1,3 +1,5 @@
+const currentYear = new Date().getFullYear()
+
 export const portfolio = {
   personal: {
     nameWords: ['BENJAMÍN', 'ALEXANDER', 'SOLANO', 'ORTEGA'],
@@ -66,7 +68,7 @@ export const portfolio = {
 
   experience: [
     {
-      date: '2023 — Hoy',
+      date: `2023 — ${currentYear}`,
       title: 'Tutor Privado de Programación',
       org: 'Universidad Nacional de Costa Rica',
       desc: 'Enseñanza de C++ a estudiantes de distintos niveles universitarios durante varios semestres, influyendo positivamente en su interés por la programación.',
@@ -94,7 +96,7 @@ export const portfolio = {
       type: 'work',
     },
     {
-      date: '2025 — Hoy',
+      date: `2025 — ${currentYear}`,
       title: 'Desarrollador · OfficeCore System',
       org: 'Datacor — Proyecto Universitario',
       desc: 'Desarrollo en equipo de un sistema de recursos humanos para la empresa Datacor como proyecto de ingeniería universitaria.',

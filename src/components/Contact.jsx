@@ -1,36 +1,16 @@
 import { motion } from 'framer-motion'
+import { Mail } from 'iconoir-react'
 import { portfolio } from '../data/portfolioData'
+import { EASE } from '../lib/motion'
 
 const { personal } = portfolio
 
 const CONTACT_ITEMS = [
-  {
-    label: 'Email',
-    value: personal.email,
-    href:  `mailto:${personal.email}`,
-  },
-  {
-    label: 'Teléfono',
-    value: personal.phone,
-    href:  `tel:${personal.phone.replace(/\s/g,'')}`,
-  },
-  {
-    label: 'GitHub',
-    value: 'github.com/Benjamin-Solano',
-    href:  personal.github,
-    external: true,
-  },
-  {
-    label: 'LinkedIn',
-    value: 'inng-benjamin-solano',
-    href:  personal.linkedin,
-    external: true,
-  },
-  {
-    label: 'Ubicación',
-    value: personal.location,
-    href:  null,
-  },
+  { label: 'Email',     value: personal.email,                    href: `mailto:${personal.email}`                        },
+  { label: 'Teléfono',  value: personal.phone,                    href: `tel:${personal.phone.replace(/\s/g, '')}`        },
+  { label: 'GitHub',    value: 'github.com/Benjamin-Solano',      href: personal.github,    external: true                },
+  { label: 'LinkedIn',  value: 'inng-benjamin-solano',            href: personal.linkedin,  external: true                },
+  { label: 'Ubicación', value: personal.location,                 href: null                                              },
 ]
 
 const ArrowOut = () => (
@@ -47,12 +27,15 @@ export default function Contact() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: EASE }}
         className="flex items-center gap-4 mb-12"
       >
-        <span className="section-label">04</span>
+        <span className="section-tag">
+          <Mail width={12} height={12} strokeWidth={2} />
+          <span>04</span>
+        </span>
         <div className="divider flex-1" />
-        <span className="section-label">Contacto</span>
+        <span className="section-tag">Contacto</span>
       </motion.div>
 
       {/* Large heading */}
@@ -61,7 +44,7 @@ export default function Contact() {
           initial={{ y: '110%' }}
           whileInView={{ y: '0%' }}
           viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, ease: EASE }}
           className="font-display text-[14vw] sm:text-[12vw] md:text-[9vw] leading-none tracking-tight"
         >
           HABLEMOS
@@ -73,7 +56,7 @@ export default function Contact() {
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
         className="text-sm leading-relaxed opacity-60 max-w-xl mb-14"
       >
         Estoy disponible para proyectos freelance, colaboraciones académicas o
@@ -82,58 +65,50 @@ export default function Contact() {
       </motion.p>
 
       {/* Contact grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-ink-900/8 dark:bg-cream-50/8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {CONTACT_ITEMS.map(({ label, value, href, external }, i) => (
           <motion.div
             key={label}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.07 }}
-            className="group bg-cream-100 dark:bg-ink-900 p-6 hover:bg-cream-200 dark:hover:bg-ink-800 transition-colors duration-200"
+            transition={{ duration: 0.5, ease: EASE, delay: i * 0.07 }}
+            className="brutal-card-sm brutal-press bg-cream-100 dark:bg-ink-900 p-6"
           >
-            <p className="section-label mb-3">{label}</p>
+            <p className="col-label">{label}</p>
             {href ? (
               <a
                 href={href}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
-                className="text-xs tracking-widest group-hover:text-gold-600 dark:group-hover:text-gold-400
-                           transition-colors duration-200 flex items-center gap-2 break-all"
+                className="text-xs tracking-widest2 flex items-center gap-2 break-all
+                           hover:underline underline-offset-4 decoration-2 transition-all duration-150"
               >
                 {value}
                 {external && <ArrowOut />}
               </a>
             ) : (
-              <p className="text-xs tracking-widest opacity-60">{value}</p>
+              <p className="text-xs tracking-widest2 opacity-60">{value}</p>
             )}
           </motion.div>
         ))}
       </div>
 
-      {/* CTA button */}
+      {/* CTA buttons */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        transition={{ duration: 0.6, ease: EASE, delay: 0.4 }}
         className="mt-10 flex flex-wrap gap-4"
       >
-        <a
-          href={`mailto:${personal.email}`}
-          className="btn-outline text-sm px-8 py-4"
-        >
+        <a href={`mailto:${personal.email}`} className="btn-brutal-lg">
           Enviar un mensaje
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M2 6h8M6 2l4 4-4 4"/>
           </svg>
         </a>
-        <a
-          href={personal.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-outline text-sm px-8 py-4"
-        >
+        <a href={personal.github} target="_blank" rel="noopener noreferrer" className="btn-brutal-lg">
           Ver GitHub
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M2 8L8 2M3 2h5v5"/>

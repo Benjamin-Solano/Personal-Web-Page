@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { EASE } from '../lib/motion'
 
 const NAV_LINKS = [
   { label: 'Sobre mí',    href: '#about'      },
@@ -30,24 +31,18 @@ const MoonIcon = () => (
 
 export default function Navbar({ dark, setDark }) {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const { scrollY } = useScroll()
-  const borderOpacity = useTransform(scrollY, [0, 80], [0, 1])
 
   return (
     <>
       <motion.header
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.6, ease: EASE }}
         className="fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-between px-6 md:px-16
-                   bg-cream-100/85 dark:bg-ink-900/85 backdrop-blur-lg"
-        style={{ borderBottom: `0.5px solid rgba(${dark ? '240,237,232' : '10,9,8'},calc(var(--tw-border-opacity,1)*0.12))` }}
+                   bg-cream-100 dark:bg-ink-900 border-b-2 border-ink-900 dark:border-cream-100"
       >
-        {/* Monogram */}
-        <a
-          href="#hero"
-          className="font-display text-xl tracking-widest2 hover:text-gold-600 dark:hover:text-gold-400 transition-colors duration-200"
-        >
+        {/* Logo */}
+        <a href="#hero" className="btn-brutal font-display text-xl px-3 py-1">
           BS
         </a>
 
@@ -57,7 +52,9 @@ export default function Navbar({ dark, setDark }) {
             <a
               key={href}
               href={href}
-              className="text-2xs tracking-widest2 uppercase opacity-50 hover:opacity-100 transition-opacity duration-200"
+              className="text-2xs tracking-widest2 uppercase
+                         hover:underline underline-offset-4 decoration-2
+                         transition-all duration-150"
             >
               {label}
             </a>
@@ -65,32 +62,32 @@ export default function Navbar({ dark, setDark }) {
         </nav>
 
         {/* Right actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <button
             onClick={() => setDark(!dark)}
             aria-label="Cambiar tema"
-            className="w-8 h-8 flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity duration-200"
+            className="btn-brutal p-2"
           >
             {dark ? <SunIcon /> : <MoonIcon />}
           </button>
 
           {/* Hamburger (mobile) */}
           <button
-            className="md:hidden flex flex-col gap-1 w-6 opacity-60 hover:opacity-100 transition-opacity"
+            className="md:hidden flex flex-col gap-[5px] w-6"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menú"
           >
             <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block h-px w-full bg-current origin-center transition-transform"
+              animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-full bg-current origin-center"
             />
             <motion.span
               animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block h-px w-full bg-current"
+              className="block h-0.5 w-full bg-current"
             />
             <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block h-px w-full bg-current origin-center"
+              animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              className="block h-0.5 w-full bg-current origin-center"
             />
           </button>
         </div>
@@ -100,15 +97,17 @@ export default function Navbar({ dark, setDark }) {
       <motion.nav
         initial={false}
         animate={mobileOpen ? { opacity: 1, y: 0, pointerEvents: 'auto' } : { opacity: 0, y: -10, pointerEvents: 'none' }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
-        className="fixed top-14 left-0 right-0 z-40 bg-cream-100 dark:bg-ink-900 border-b border-ink-900/10 dark:border-cream-50/10 px-6 py-6 flex flex-col gap-5 md:hidden"
+        transition={{ duration: 0.2, ease: 'easeOut' }}
+        className="fixed top-14 left-0 right-0 z-40 bg-cream-100 dark:bg-ink-900
+                   border-b-2 border-ink-900 dark:border-cream-100
+                   px-6 py-6 flex flex-col gap-5 md:hidden"
       >
         {NAV_LINKS.map(({ label, href }) => (
           <a
             key={href}
             href={href}
             onClick={() => setMobileOpen(false)}
-            className="text-xs tracking-widest2 uppercase opacity-60 hover:opacity-100 transition-opacity"
+            className="text-xs tracking-widest2 uppercase hover:underline decoration-2 underline-offset-4"
           >
             {label}
           </a>
