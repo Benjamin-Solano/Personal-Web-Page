@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
-import Navbar     from './components/Navbar'
-import Hero       from './components/Hero'
-import About      from './components/About'
-import Skills     from './components/Skills'
+import Navbar    from './components/Navbar'
+import Hero      from './components/Hero'
+import About     from './components/About'
+import Education from './components/Education'
+import Skills    from './components/Skills'
 import Experience from './components/Experience'
-import Contact    from './components/Contact'
+import Projects  from './components/Projects'
+import Services  from './components/Services'
+import Contact   from './components/Contact'
 
 export default function App() {
   const [dark, setDark] = useState(() => {
@@ -31,8 +34,11 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Education />
         <Skills />
         <Experience />
+        <Projects />
+        <Services />
         <Contact />
       </main>
       <footer className="section-wrapper py-8 divider">

@@ -104,6 +104,20 @@ export const portfolio = {
     },
   ],
 
+  projects: [
+    {
+      title: 'U-Vote',
+      subtitle: 'Plataforma Universitaria de Votaciones Digitales',
+      description: 'Sistema web de votaciones digitales para la comunidad universitaria de la UNA. Permite crear, compartir y analizar procesos de decisión colectiva — desde elecciones estudiantiles hasta encuestas de retroalimentación — con total transparencia. El proyecto representa un ahorro estimado de $14,000 anuales frente a los servicios externos de votación actualmente utilizados por la institución.',
+      stack: ['React', 'C# / .NET', 'PostgreSQL', 'Vercel'],
+      live: 'https://u-vote-three.vercel.app/',
+      github: 'https://github.com/Benjamin-Solano/U-Vote',
+      stat: { value: '$14,000', label: 'ahorro anual estimado — UNA' },
+      org: 'Universidad Nacional de Costa Rica',
+      year: '2025',
+    },
+  ],
+
   aptitudes: [
     'Liderazgo colaborativo',
     'Trabajo en equipo',

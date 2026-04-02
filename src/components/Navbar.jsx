@@ -4,8 +4,11 @@ import { EASE } from '../lib/motion'
 
 const NAV_LINKS = [
   { label: 'Sobre mí',    href: '#about'      },
+  { label: 'Educación',   href: '#education'  },
   { label: 'Skills',      href: '#skills'     },
   { label: 'Experiencia', href: '#experience' },
+  { label: 'Proyectos',   href: '#projects'   },
+  { label: 'Servicios',   href: '#services'   },
   { label: 'Contacto',    href: '#contact'    },
 ]
 
@@ -38,58 +41,60 @@ export default function Navbar({ dark, setDark }) {
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
-        className="fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-between px-6 md:px-16
+        className="fixed top-0 left-0 right-0 z-50 h-14
                    bg-cream-100 dark:bg-ink-900 border-b-2 border-ink-900 dark:border-cream-100"
       >
-        {/* Logo */}
-        <a href="#hero" className="btn-brutal font-display text-xl px-3 py-1">
-          BS
-        </a>
+        <div className="h-full flex items-center justify-between px-6 md:px-16 lg:px-24 mx-auto" style={{ maxWidth: '72rem' }}>
+          {/* Logo */}
+          <a href="#hero" className="btn-brutal font-display text-xl px-3 py-1">
+            BS
+          </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map(({ label, href }) => (
-            <a
-              key={href}
-              href={href}
-              className="text-2xs tracking-widest2 uppercase
-                         hover:underline underline-offset-4 decoration-2
-                         transition-all duration-150"
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-2">
+            {NAV_LINKS.map(({ label, href }) => (
+              <a
+                key={href}
+                href={href}
+                className="brutal-card-sm brutal-press
+                           text-2xs tracking-widest2 uppercase
+                           px-3 py-1.5 bg-cream-100 dark:bg-ink-900"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right actions */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setDark(!dark)}
+              aria-label="Cambiar tema"
+              className="btn-brutal p-2"
             >
-              {label}
-            </a>
-          ))}
-        </nav>
+              {dark ? <SunIcon /> : <MoonIcon />}
+            </button>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setDark(!dark)}
-            aria-label="Cambiar tema"
-            className="btn-brutal p-2"
-          >
-            {dark ? <SunIcon /> : <MoonIcon />}
-          </button>
-
-          {/* Hamburger (mobile) */}
-          <button
-            className="md:hidden flex flex-col gap-[5px] w-6"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Menú"
-          >
-            <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-full bg-current origin-center"
-            />
-            <motion.span
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block h-0.5 w-full bg-current"
-            />
-            <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-full bg-current origin-center"
-            />
-          </button>
+            {/* Hamburger (mobile) */}
+            <button
+              className="md:hidden flex flex-col gap-[5px] w-6"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Menú"
+            >
+              <motion.span
+                animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                className="block h-0.5 w-full bg-current origin-center"
+              />
+              <motion.span
+                animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="block h-0.5 w-full bg-current"
+              />
+              <motion.span
+                animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                className="block h-0.5 w-full bg-current origin-center"
+              />
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -100,14 +105,16 @@ export default function Navbar({ dark, setDark }) {
         transition={{ duration: 0.2, ease: 'easeOut' }}
         className="fixed top-14 left-0 right-0 z-40 bg-cream-100 dark:bg-ink-900
                    border-b-2 border-ink-900 dark:border-cream-100
-                   px-6 py-6 flex flex-col gap-5 md:hidden"
+                   px-6 py-6 flex flex-col gap-3 md:hidden"
       >
         {NAV_LINKS.map(({ label, href }) => (
           <a
             key={href}
             href={href}
             onClick={() => setMobileOpen(false)}
-            className="text-xs tracking-widest2 uppercase hover:underline decoration-2 underline-offset-4"
+            className="brutal-card-sm brutal-press
+                       text-xs tracking-widest2 uppercase
+                       px-4 py-2.5 bg-cream-100 dark:bg-ink-900"
           >
             {label}
           </a>

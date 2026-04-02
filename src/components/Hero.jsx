@@ -37,7 +37,7 @@ export default function Hero() {
               <motion.h1
                 variants={wordVariants}
                 className="font-display leading-none tracking-tight select-none
-                           text-[17vw] sm:text-[15vw] md:text-[13vw] lg:text-[9vw]"
+                           text-[17vw] sm:text-[15vw] md:text-[13vw] lg:text-[8vw]"
               >
                 {word}
               </motion.h1>
@@ -50,7 +50,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.9 }}
-          className="hidden lg:flex flex-col flex-shrink-0 w-64 xl:w-72 self-center"
+          className="hidden lg:flex flex-col flex-shrink-0 w-80 xl:w-96 self-center"
         >
           <div className="brutal-card overflow-hidden">
             <img
@@ -75,7 +75,7 @@ export default function Hero() {
         variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 1.1 } } }}
         className="flex flex-col md:flex-row md:items-end justify-between gap-8 pt-8"
       >
-        {/* Left: role + location */}
+        {/* Left: role + location + badge */}
         <div className="flex flex-col gap-1">
           <motion.p variants={fadeUp(0)} className="text-xs tracking-widest2 uppercase opacity-60">
             {personal.role}
@@ -86,10 +86,19 @@ export default function Hero() {
           <motion.p variants={fadeUp(0.1)} className="text-xs tracking-widest2 uppercase opacity-30">
             {personal.location}
           </motion.p>
+
+          {/* Availability badge */}
+          <motion.div variants={fadeUp(0.15)} className="section-tag gap-2 mt-3 self-start">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inset-0 rounded-full bg-green-500 opacity-70" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+            Disponible
+          </motion.div>
         </div>
 
         {/* Right: CTAs */}
-        <motion.div variants={fadeUp(0.15)} className="flex flex-wrap gap-3">
+        <motion.div variants={fadeUp(0.2)} className="flex flex-wrap gap-3">
           <a href={personal.github} target="_blank" rel="noopener noreferrer" className="btn-brutal">
             GitHub
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">

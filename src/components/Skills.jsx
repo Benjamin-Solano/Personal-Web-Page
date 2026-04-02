@@ -67,7 +67,7 @@ export default function Skills() {
       >
         <span className="section-tag">
           <Code width={12} height={12} strokeWidth={2} />
-          <span>02</span>
+          <span>03</span>
         </span>
         <div className="divider flex-1" />
         <span className="section-tag">Skills</span>

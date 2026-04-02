@@ -41,7 +41,8 @@
 
 @layer components {
   .section-px {
-    @apply px-6 md:px-16 lg:px-24;
+    @apply px-6 md:px-16 lg:px-24 w-full mx-auto;
+    max-width: 72rem; /* 1152px — contenido angosto y centrado */
   }
 
   .section-wrapper {

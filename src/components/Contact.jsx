@@ -32,7 +32,7 @@ export default function Contact() {
       >
         <span className="section-tag">
           <Mail width={12} height={12} strokeWidth={2} />
-          <span>04</span>
+          <span>07</span>
         </span>
         <div className="divider flex-1" />
         <span className="section-tag">Contacto</span>

@@ -24,7 +24,7 @@ export default function Experience() {
       >
         <span className="section-tag">
           <Journal width={12} height={12} strokeWidth={2} />
-          <span>03</span>
+          <span>04</span>
         </span>
         <div className="divider flex-1" />
         <span className="section-tag">Experiencia</span>
