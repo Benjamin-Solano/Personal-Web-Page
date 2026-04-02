@@ -44,7 +44,7 @@ export const portfolio = {
         { name: 'HTML / CSS',  pct: 90 },
         { name: 'JavaScript',  pct: 85 },
         { name: 'React',       pct: 75 },
-        { name: 'Bootstrap',   pct: 70 },
+        { name: 'Tailwind CSS', pct: 70 },
       ],
     },
     {
@@ -115,6 +115,30 @@ export const portfolio = {
       stat: { value: '$14,000', label: 'ahorro anual estimado — UNA' },
       org: 'Universidad Nacional de Costa Rica',
       year: '2025',
+    },
+  ],
+
+  services: [
+    {
+      icon: 'Book',
+      title: 'Tutor Privado',
+      description:
+        'Clases personalizadas de programación enfocadas en C++, Java y fundamentos de informática para estudiantes universitarios. Metodología práctica basada en resolución de problemas y comprensión de algoritmos.',
+      tags: ['C++', 'Java', 'Algoritmos', 'Universitario'],
+    },
+    {
+      icon: 'Group',
+      title: 'Proyectos en Equipo',
+      description:
+        'Abierto a participar en proyectos universitarios, open source o colaborativos. Aporto en diseño de sistemas, arquitectura backend, desarrollo frontend y gestión de bases de datos.',
+      tags: ['React', 'C# / .NET', 'PostgreSQL', 'Full Stack'],
+    },
+    {
+      icon: 'HandCash',
+      title: 'Freelance',
+      description:
+        'Desarrollo de aplicaciones web, sistemas de información y soluciones a medida para empresas o emprendedores. Desde el diseño inicial hasta el despliegue en producción.',
+      tags: ['Web', 'Sistemas', 'Consultoría', 'Despliegue'],
     },
   ],
 

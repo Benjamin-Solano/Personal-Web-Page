@@ -5,7 +5,7 @@ import { EASE } from '../lib/motion'
 const NAV_LINKS = [
   { label: 'Sobre mí',    href: '#about'      },
   { label: 'Educación',   href: '#education'  },
-  { label: 'Skills',      href: '#skills'     },
+  { label: 'Habilidades', href: '#skills'     },
   { label: 'Experiencia', href: '#experience' },
   { label: 'Proyectos',   href: '#projects'   },
   { label: 'Servicios',   href: '#services'   },
@@ -42,7 +42,7 @@ export default function Navbar({ dark, setDark }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
         className="fixed top-0 left-0 right-0 z-50 h-14
-                   bg-cream-100 dark:bg-ink-900 border-b-2 border-ink-900 dark:border-cream-100"
+                   bg-cream-100 dark:bg-ink-900"
       >
         <div className="h-full flex items-center justify-between px-6 md:px-16 lg:px-24 mx-auto" style={{ maxWidth: '72rem' }}>
           {/* Logo */}

@@ -50,7 +50,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.9 }}
-          className="hidden lg:flex flex-col flex-shrink-0 w-80 xl:w-96 self-center"
+          className="flex flex-col flex-shrink-0 w-28 sm:w-40 md:w-56 lg:w-80 xl:w-96 self-center"
         >
           <div className="brutal-card overflow-hidden">
             <img

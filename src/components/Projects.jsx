@@ -70,9 +70,6 @@ function ProjectCard({ project, index }) {
 
           {/* Links */}
           <div className="flex gap-3">
-            <a href={project.live} target="_blank" rel="noopener noreferrer" className="btn-brutal">
-              Live <ArrowOut />
-            </a>
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-brutal">
               GitHub <ArrowOut />
             </a>
@@ -131,7 +128,7 @@ export default function Projects() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.6, ease: EASE }}
         className="flex items-center gap-4 mb-12"
       >
@@ -148,7 +145,7 @@ export default function Projects() {
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, ease: EASE }}
           className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none"
         >

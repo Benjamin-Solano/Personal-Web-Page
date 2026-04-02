@@ -26,7 +26,7 @@ export default function Contact() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.6, ease: EASE }}
         className="flex items-center gap-4 mb-12"
       >
@@ -38,16 +38,16 @@ export default function Contact() {
         <span className="section-tag">Contacto</span>
       </motion.div>
 
-      {/* Large heading */}
-      <div className="overflow-hidden mb-12 md:mb-16">
+      {/* Big label */}
+      <div className="overflow-hidden mb-12">
         <motion.h2
-          initial={{ y: '110%' }}
-          whileInView={{ y: '0%' }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: EASE }}
-          className="font-display text-[14vw] sm:text-[12vw] md:text-[9vw] leading-none tracking-tight"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, ease: EASE }}
+          className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none"
         >
-          HABLEMOS
+          CONTACTO
         </motion.h2>
       </div>
 
@@ -55,7 +55,7 @@ export default function Contact() {
       <motion.p
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
         className="text-sm leading-relaxed opacity-60 max-w-xl mb-14"
       >
@@ -71,7 +71,7 @@ export default function Contact() {
             key={label}
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, ease: EASE, delay: i * 0.07 }}
             className="brutal-card-sm brutal-press bg-cream-100 dark:bg-ink-900 p-6"
           >
@@ -98,7 +98,7 @@ export default function Contact() {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.6, ease: EASE, delay: 0.4 }}
         className="mt-10 flex flex-wrap gap-4"
       >

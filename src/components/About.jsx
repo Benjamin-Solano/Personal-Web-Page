@@ -8,7 +8,7 @@ const { description, quote, languages, aptitudes } = portfolio
 
 export default function About() {
   const ref   = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+  const inView = useInView(ref, { once: false, margin: '-100px' })
 
   return (
     <section id="about" className="section-wrapper">
@@ -90,7 +90,7 @@ export default function About() {
               key={apt}
               initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: i * 0.06, duration: 0.4 }}
               className="tag-pill"
             >

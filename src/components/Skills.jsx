@@ -31,7 +31,7 @@ function SkillGroup({ category, items, delay, inView }) {
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: false, margin: '-60px' }}
       transition={{ duration: 0.6, ease: EASE, delay }}
       className="brutal-card p-5 bg-cream-100 dark:bg-ink-900"
     >
@@ -53,7 +53,7 @@ function SkillGroup({ category, items, delay, inView }) {
 
 export default function Skills() {
   const ref    = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+  const inView = useInView(ref, { once: false, margin: '-100px' })
 
   return (
     <section id="skills" className="section-wrapper" ref={ref}>
@@ -61,7 +61,7 @@ export default function Skills() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.6, ease: EASE }}
         className="flex items-center gap-4 mb-12"
       >
@@ -70,14 +70,14 @@ export default function Skills() {
           <span>03</span>
         </span>
         <div className="divider flex-1" />
-        <span className="section-tag">Skills</span>
+        <span className="section-tag">Habilidades</span>
       </motion.div>
 
       {/* Section big label */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
         className="overflow-hidden mb-12"
       >
@@ -102,7 +102,7 @@ export default function Skills() {
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ delay: 0.6, duration: 0.6, ease: EASE }}
         className="mt-6 text-2xs opacity-30 tracking-widest2"
       >

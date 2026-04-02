@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(node -e \"const i = require\\('iconoir-react'\\); console.log\\(Object.keys\\(i\\).filter\\(k => ['BookOpen','Book','GraduationCap','Medal','Award','Diploma','Laptop','Computer','Group','AddUser','Trophy','Star','Certificate','School','BadgeCheck','Rocket','Coin','HandCash'].includes\\(k\\)\\)\\)\")"
+      "Bash(node -e \"const i = require\\('iconoir-react'\\); console.log\\(Object.keys\\(i\\).filter\\(k => ['BookOpen','Book','GraduationCap','Medal','Award','Diploma','Laptop','Computer','Group','AddUser','Trophy','Star','Certificate','School','BadgeCheck','Rocket','Coin','HandCash'].includes\\(k\\)\\)\\)\")",
+      "Bash(node -e ':*)"
     ]
   }
 }

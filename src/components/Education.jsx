@@ -12,7 +12,7 @@ const EDUCATION = [
   },
   {
     year: '2022 — Presente',
-    title: 'Ingeniería en Sistemas',
+    title: 'Bachillerato en Ingeniería en Sistemas',
     org: 'Universidad Nacional de Costa Rica',
     type: 'degree',
     current: true,
@@ -40,7 +40,7 @@ export default function Education() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.6, ease: EASE }}
         className="flex items-center gap-4 mb-12"
       >
@@ -57,7 +57,7 @@ export default function Education() {
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, ease: EASE }}
           className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none"
         >
@@ -72,7 +72,7 @@ export default function Education() {
             key={title}
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: false, margin: '-60px' }}
             transition={{ duration: 0.6, ease: EASE, delay: i * 0.08 }}
             className="group grid grid-cols-[5rem_1fr] md:grid-cols-[9rem_1fr] gap-4 md:gap-8
                        px-5 py-6
