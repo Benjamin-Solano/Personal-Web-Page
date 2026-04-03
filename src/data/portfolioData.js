@@ -99,7 +99,7 @@ export const portfolio = {
       date: `2025 — ${currentYear}`,
       title: 'Desarrollador · OfficeCore System',
       org: 'Datacor — Proyecto Universitario',
-      desc: 'Desarrollo en equipo de un sistema de recursos humanos para la empresa Datacor como proyecto de ingeniería universitaria.',
+      desc: 'Desarrollé en equipo un sistema de recursos humanos para la empresa Datacor con el fin de centralizar procesos que heran manejados de forma dispersa en libros de excel.',
       type: 'project',
     },
   ],
@@ -121,7 +121,7 @@ export const portfolio = {
   services: [
     {
       icon: 'Book',
-      title: 'Tutor Privado',
+      title: 'Tutorias Privadas',
       description:
         'Clases personalizadas de programación enfocadas en C++, Java y fundamentos de informática para estudiantes universitarios. Metodología práctica basada en resolución de problemas y comprensión de algoritmos.',
       tags: ['C++', 'Java', 'Algoritmos', 'Universitario'],
