@@ -1,2 +1,1 @@
-# Benjamín Solano — Portfolio
 
