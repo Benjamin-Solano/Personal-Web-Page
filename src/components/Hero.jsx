@@ -24,11 +24,11 @@ export default function Hero() {
       <div className="divider mb-0" />
 
       {/* Name + Photo */}
-      <div className="flex-1 flex items-center gap-10 py-8 md:py-12">
+      <div className="flex-1 flex items-center gap-1 sm:gap-6 md:gap-10 py-8 md:py-12">
 
         {/* Name */}
         <motion.div
-          className="flex-1"
+          className="flex-1 min-w-0"
           initial="hidden"
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.12, delayChildren: 0.35 } } }}
@@ -38,7 +38,7 @@ export default function Hero() {
               <motion.h1
                 variants={wordVariants}
                 className="font-display leading-none tracking-tight select-none
-                           text-[17vw] sm:text-[15vw] md:text-[13vw] lg:text-[8vw]"
+                           text-[13vw] sm:text-[13vw] md:text-[11vw] lg:text-[8vw]"
               >
                 {word}
               </motion.h1>
@@ -46,12 +46,12 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Profile photo panel — lg+ only */}
+        {/* Profile photo panel */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE, delay: 0.9 }}
-          className="flex flex-col flex-shrink-0 w-28 sm:w-40 md:w-56 lg:w-80 xl:w-96 self-center"
+          className="flex flex-col flex-shrink-0 w-24 sm:w-40 md:w-56 lg:w-80 xl:w-96 self-center"
         >
           <div className="brutal-card overflow-hidden">
             <img
