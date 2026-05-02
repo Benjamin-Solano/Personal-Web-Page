@@ -33,6 +33,7 @@ export const portfolio = {
     {
       category: 'Backend',
       items: [
+        { name: 'C++',   pct: 90 },
         { name: 'Java',  pct: 80 },
         { name: 'C#',    pct: 75 },
         { name: '.NET',  pct: 70 },

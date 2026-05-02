@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { portfolio } from '../data/portfolioData'
 import { EASE, wordVariants, fadeUp } from '../lib/motion'
 import ProfilePic from '../assets/ProfilePic.jpeg'
+import CvFile from '../assets/CV_Benjamin_Alexander_Solano_Ortega.pdf'
 
 const { personal } = portfolio
 
@@ -111,7 +112,7 @@ export default function Hero() {
               <path d="M2 8L8 2M3 2h5v5"/>
             </svg>
           </a>
-          <a href="/cv.pdf" download className="btn-brutal">
+          <a href={CvFile} download="CV_Benjamin_Alexander_Solano_Ortega.pdf" className="btn-brutal">
             Descargar CV
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 2v6M2 6l3 3 3-3"/>
