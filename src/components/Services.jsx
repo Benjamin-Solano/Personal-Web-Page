@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion'
 import { Book, Group, HandCash } from 'iconoir-react'
-import { portfolio } from '../data/portfolioData'
+import { useT } from '../context/LanguageContext'
 import { EASE, reveal } from '../lib/motion'
 
 const ICON_MAP = { Book, Group, HandCash }
 
-const { services } = portfolio
-
 export default function Services() {
+  const t = useT()
+  const { services } = t
+
   return (
     <section id="services" className="section-wrapper">
       {/* Section identifier */}
@@ -23,7 +24,7 @@ export default function Services() {
           <span>06</span>
         </span>
         <div className="divider flex-1" />
-        <span className="section-tag">Servicios</span>
+        <span className="section-tag">{services.sectionTag}</span>
       </motion.div>
 
       {/* Big label */}
@@ -35,13 +36,13 @@ export default function Services() {
           transition={{ duration: 0.8, ease: EASE }}
           className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none"
         >
-          OFREZCO
+          {services.heading}
         </motion.h2>
       </div>
 
       {/* Service cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {services.map(({ icon, title, description, tags }, i) => {
+        {services.items.map(({ icon, title, description, tags }, i) => {
           const Icon = ICON_MAP[icon]
           return (
             <motion.div
@@ -49,7 +50,6 @@ export default function Services() {
               {...reveal(i * 0.1)}
               className="brutal-card p-6 flex flex-col gap-5 bg-cream-100 dark:bg-ink-900"
             >
-              {/* Icon + title */}
               <div>
                 <div className="brutal-card-sm inline-flex p-2.5 mb-4">
                   <Icon width={18} height={18} strokeWidth={1.5} />
@@ -62,7 +62,6 @@ export default function Services() {
                 </p>
               </div>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t-2 border-ink-900 dark:border-cream-100">
                 {tags.map(tag => (
                   <span key={tag} className="tag-pill">{tag}</span>

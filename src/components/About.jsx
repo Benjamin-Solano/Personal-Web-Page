@@ -1,13 +1,13 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { User } from 'iconoir-react'
-import { portfolio } from '../data/portfolioData'
+import { useT } from '../context/LanguageContext'
 import { reveal } from '../lib/motion'
 
-const { description, quote, languages, aptitudes } = portfolio
-
 export default function About() {
-  const ref   = useRef(null)
+  const t = useT()
+  const { about } = t
+  const ref    = useRef(null)
   const inView = useInView(ref, { once: false, margin: '-100px' })
 
   return (
@@ -19,17 +19,17 @@ export default function About() {
           <span>01</span>
         </span>
         <div className="divider flex-1" />
-        <span className="section-tag">Sobre mí</span>
+        <span className="section-tag">{about.sectionTag}</span>
       </motion.div>
 
       {/* Large quote */}
       <motion.blockquote {...reveal(0.05)} className="mb-12 md:mb-16">
         <p className="font-display text-[6.5vw] sm:text-[5vw] md:text-[3.8vw] leading-tight tracking-tight
                       text-ink-800 dark:text-cream-100 mb-3 max-w-5xl">
-          "{quote.text}"
+          "{about.quote.text}"
         </p>
         <footer className="text-2xs tracking-widest2 uppercase opacity-40">
-          — {quote.author}
+          — {about.quote.author}
         </footer>
       </motion.blockquote>
 
@@ -42,9 +42,9 @@ export default function About() {
       >
         {/* Description */}
         <div className="p-6 border-b-2 lg:border-b-0 lg:border-r-2 border-ink-900 dark:border-cream-100">
-          <p className="col-label">Perfil</p>
+          <p className="col-label">{about.profile}</p>
           <div className="flex flex-col gap-5">
-            {description.map((p, i) => (
+            {about.description.map((p, i) => (
               <p key={i} className="text-sm leading-relaxed opacity-70">{p}</p>
             ))}
           </div>
@@ -52,9 +52,9 @@ export default function About() {
 
         {/* Languages */}
         <div className="p-6">
-          <p className="col-label">Idiomas</p>
+          <p className="col-label">{about.languagesLabel}</p>
           <div ref={ref} className="flex flex-col gap-6">
-            {languages.map(({ name, level, pct }, i) => (
+            {about.languages.map(({ name, level, pct }, i) => (
               <div key={name}>
                 <div className="flex justify-between items-baseline mb-2">
                   <span className="text-xs tracking-widest2 uppercase">{name}</span>
@@ -83,9 +83,9 @@ export default function About() {
 
       {/* Aptitudes */}
       <motion.div {...reveal(0.2)}>
-        <p className="col-label">Aptitudes</p>
+        <p className="col-label">{about.aptitudesLabel}</p>
         <div className="flex flex-wrap gap-2">
-          {aptitudes.map((apt, i) => (
+          {about.aptitudes.map((apt, i) => (
             <motion.span
               key={apt}
               initial={{ opacity: 0, scale: 0.92 }}

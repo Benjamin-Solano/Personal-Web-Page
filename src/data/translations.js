@@ -1,0 +1,413 @@
+const y = new Date().getFullYear()
+
+export const translations = {
+  es: {
+    nav: {
+      links: [
+        { label: 'Sobre mí',    href: '#about'      },
+        { label: 'Educación',   href: '#education'  },
+        { label: 'Habilidades', href: '#skills'     },
+        { label: 'Experiencia', href: '#experience' },
+        { label: 'Proyectos',   href: '#projects'   },
+        { label: 'Servicios',   href: '#services'   },
+        { label: 'Contacto',    href: '#contact'    },
+      ],
+      langToggle: 'EN',
+    },
+    footer: `© ${y} — Todos los derechos reservados.`,
+    personal: {
+      role: 'Estudiante de Ingeniería en Sistemas',
+    },
+    hero: {
+      available: 'Disponible',
+      downloadCV: 'Descargar CV',
+    },
+    about: {
+      sectionTag: 'Sobre mí',
+      profile: 'Perfil',
+      languagesLabel: 'Idiomas',
+      aptitudesLabel: 'Aptitudes',
+      description: [
+        'Soy estudiante de Ingeniería en Sistemas con una sólida formación en desarrollo Full Stack, combinando experiencia práctica en Java, C#, .NET, React, PostgreSQL y MySQL.',
+        'Me apasiona el diseño de software moderno y minimalista, la resolución de problemas complejos y la mejora continua de la experiencia de usuario. He participado en competencias de alto nivel como el ICPC y torneos internos de programación de la UNA, demostrando mi compromiso con la excelencia técnica y el trabajo en equipo bajo presión.',
+      ],
+      quote: {
+        text: 'El minimalismo no es la falta de algo. Es simplemente la cantidad perfecta de algo.',
+        author: 'Nicholas Burroughs',
+      },
+      languages: [
+        { name: 'Español', level: 'Nativo',   pct: 100 },
+        { name: 'Inglés',  level: 'C1 — 85%', pct: 85  },
+        { name: 'Alemán',  level: 'A1 — 10%', pct: 10  },
+      ],
+      aptitudes: [
+        'Liderazgo colaborativo',
+        'Trabajo en equipo',
+        'Adaptabilidad',
+        'Comunicación',
+        'Autodidacta',
+        'Puntualidad',
+      ],
+    },
+    education: {
+      sectionTag: 'Educación',
+      heading: 'FORMACIÓN',
+      degreesTitle: 'Títulos Académicos',
+      certsTitle: 'Certificaciones',
+      inProgress: 'En curso',
+      degrees: [
+        { year: '2021',        title: 'Bachillerato Internacional (IB)',         org: 'Liceo de Costa Rica',               type: 'degree', current: false },
+        { year: '2022 — 2027', title: 'Bachillerato en Ingeniería en Sistemas',  org: 'Universidad Nacional de Costa Rica', type: 'degree', current: true  },
+      ],
+      certs: [
+        { year: '2026', title: 'Scrum Fundamentals Certified', org: 'SCRUMstudy',         type: 'cert', current: false },
+        { year: '2026', title: 'Claude Code Certified',        org: 'Anthropic',           type: 'cert', current: false },
+        { year: '2026', title: 'Claude 101',                   org: 'Anthropic Education', type: 'cert', current: false },
+        { year: '2026', title: 'Claude Code 101',              org: 'Anthropic Education', type: 'cert', current: false },
+        { year: '2026', title: 'Claude Platform 101',          org: 'Anthropic Education', type: 'cert', current: false },
+        { year: '2026', title: 'Google AI Essentials',         org: 'Google',              type: 'cert', current: false },
+        { year: '2026', title: 'Prompt Engineer Mastery',      org: 'Norai Connect',       type: 'cert', current: false },
+      ],
+    },
+    skills: {
+      sectionTag: 'Habilidades',
+      heading: 'CONOCIMIENTO',
+      disclaimer: '* Los porcentajes son auto-estimados basados en experiencia práctica.',
+      groups: [
+        {
+          category: 'Backend',
+          items: [
+            { name: 'C++',  pct: 90 },
+            { name: 'Java', pct: 80 },
+            { name: 'C#',   pct: 75 },
+            { name: '.NET', pct: 70 },
+          ],
+        },
+        {
+          category: 'Frontend',
+          items: [
+            { name: 'HTML / CSS',   pct: 90 },
+            { name: 'JavaScript',   pct: 85 },
+            { name: 'React',        pct: 75 },
+            { name: 'Tailwind CSS', pct: 70 },
+          ],
+        },
+        {
+          category: 'Bases de Datos',
+          items: [
+            { name: 'MySQL',      pct: 80 },
+            { name: 'PostgreSQL', pct: 75 },
+          ],
+        },
+        {
+          category: 'Otros',
+          items: [
+            { name: 'Git / GitHub',           pct: 85 },
+            { name: 'Inteligencia Artificial', pct: 80 },
+            { name: 'Prompt Engineering',      pct: 80 },
+            { name: 'Metodología Scrum',       pct: 75 },
+          ],
+        },
+      ],
+    },
+    experience: {
+      sectionTag: 'Experiencia',
+      heading: 'TRAYECTORIA',
+      workLabel: 'Trabajos & Proyectos',
+      achievementsLabel: 'Logros & Reconocimientos',
+      types: { work: 'Trabajo', achievement: 'Logro', project: 'Proyecto' },
+      items: [
+        {
+          date: `2023 — ${y}`,
+          title: 'Tutor Privado de Programación',
+          org: 'Universidad Nacional de Costa Rica',
+          desc: 'Enseñanza de C++ a estudiantes de distintos niveles universitarios durante varios semestres, influyendo positivamente en su interés por la programación.',
+          type: 'work',
+        },
+        {
+          date: '2025',
+          title: 'International Collegiate Programming Contest',
+          org: 'ICPC — Fase Nacional',
+          desc: 'Participación en la fase nacional del prestigioso torneo universitario de programación competitiva. Resolución de problemas en C++ en equipo bajo presión.',
+          type: 'achievement',
+        },
+        {
+          date: '2025',
+          title: '2.º Lugar — Torneo de Programación',
+          org: 'T.E.P. · UNA',
+          desc: 'Segundo lugar junto a un equipo de programadores, resolviendo problemas estilo Codeforces e ICPC en C++.',
+          type: 'achievement',
+        },
+        {
+          date: '2025',
+          title: 'Mentor · Escuela de Informática',
+          org: 'Universidad Nacional de Costa Rica',
+          desc: 'Rol de mentoría para estudiantes de primer año, abordando dudas sobre vida universitaria y programación.',
+          type: 'work',
+        },
+        {
+          date: `2025 — ${y}`,
+          title: 'Desarrollador · OfficeCore System',
+          org: 'Datacor — Proyecto Universitario',
+          desc: 'Desarrollé en equipo un sistema de recursos humanos para la empresa Datacor con el fin de centralizar procesos que eran manejados de forma dispersa en libros de Excel.',
+          type: 'project',
+        },
+      ],
+    },
+    projects: {
+      sectionTag: 'Proyectos',
+      heading: 'PROYECTOS',
+      items: [
+        {
+          title: 'U-Vote',
+          subtitle: 'Plataforma Universitaria de Votaciones Digitales',
+          description: 'Sistema web de votaciones digitales para la comunidad universitaria de la UNA. Permite crear, compartir y analizar procesos de decisión colectiva — desde elecciones estudiantiles hasta encuestas de retroalimentación — con total transparencia. El proyecto representa un ahorro estimado de $14,000 anuales frente a los servicios externos de votación actualmente utilizados por la institución.',
+          stack: ['React', 'C# / .NET', 'PostgreSQL', 'Vercel'],
+          live: 'https://u-vote-three.vercel.app/',
+          github: 'https://github.com/Benjamin-Solano/U-Vote',
+          stat: { value: '$14,000', label: 'ahorro anual estimado — UNA' },
+          org: 'Universidad Nacional de Costa Rica',
+          year: '2025',
+        },
+      ],
+    },
+    services: {
+      sectionTag: 'Servicios',
+      heading: 'OFREZCO',
+      items: [
+        {
+          icon: 'Book',
+          title: 'Tutorías Privadas',
+          description: 'Clases personalizadas de programación enfocadas en C++, Java y fundamentos de informática para estudiantes universitarios. Metodología práctica basada en resolución de problemas y comprensión de algoritmos.',
+          tags: ['C++', 'Java', 'Algoritmos', 'Universitario'],
+        },
+        {
+          icon: 'Group',
+          title: 'Proyectos en Equipo',
+          description: 'Abierto a participar en proyectos universitarios, open source o colaborativos. Aporto en diseño de sistemas, arquitectura backend, desarrollo frontend y gestión de bases de datos.',
+          tags: ['React', 'C# / .NET', 'PostgreSQL', 'Full Stack'],
+        },
+        {
+          icon: 'HandCash',
+          title: 'Freelance',
+          description: 'Desarrollo de aplicaciones web, sistemas de información y soluciones a medida para empresas o emprendedores. Desde el diseño inicial hasta el despliegue en producción.',
+          tags: ['Web', 'Sistemas', 'Consultoría', 'Despliegue'],
+        },
+      ],
+    },
+    contact: {
+      sectionTag: 'Contacto',
+      heading: 'CONTACTO',
+      phone: 'Teléfono',
+      location: 'Ubicación',
+      subtext: 'Estoy disponible para proyectos freelance, colaboraciones académicas o simplemente para conversar sobre tecnología y desarrollo de software. No dudes en escribirme.',
+      sendMessage: 'Enviar un mensaje',
+      viewGithub: 'Ver GitHub',
+    },
+  },
+
+  en: {
+    nav: {
+      links: [
+        { label: 'About',      href: '#about'      },
+        { label: 'Education',  href: '#education'  },
+        { label: 'Skills',     href: '#skills'     },
+        { label: 'Experience', href: '#experience' },
+        { label: 'Projects',   href: '#projects'   },
+        { label: 'Services',   href: '#services'   },
+        { label: 'Contact',    href: '#contact'    },
+      ],
+      langToggle: 'ES',
+    },
+    footer: `© ${y} — All rights reserved.`,
+    personal: {
+      role: 'Systems Engineering Student',
+    },
+    hero: {
+      available: 'Available',
+      downloadCV: 'Download CV',
+    },
+    about: {
+      sectionTag: 'About me',
+      profile: 'Profile',
+      languagesLabel: 'Languages',
+      aptitudesLabel: 'Aptitudes',
+      description: [
+        'I am a Systems Engineering student with a strong background in Full Stack development, combining hands-on experience in Java, C#, .NET, React, PostgreSQL, and MySQL.',
+        'I am passionate about modern, minimalist software design, solving complex problems, and continuously improving user experience. I have competed in high-level contests such as ICPC and internal programming tournaments at UNA, demonstrating my commitment to technical excellence and teamwork under pressure.',
+      ],
+      quote: {
+        text: "Minimalism is not the lack of something. It's simply the perfect amount of something.",
+        author: 'Nicholas Burroughs',
+      },
+      languages: [
+        { name: 'Spanish', level: 'Native',   pct: 100 },
+        { name: 'English', level: 'C1 — 85%', pct: 85  },
+        { name: 'German',  level: 'A1 — 10%', pct: 10  },
+      ],
+      aptitudes: [
+        'Collaborative leadership',
+        'Teamwork',
+        'Adaptability',
+        'Communication',
+        'Self-taught',
+        'Punctuality',
+      ],
+    },
+    education: {
+      sectionTag: 'Education',
+      heading: 'EDUCATION',
+      degreesTitle: 'Academic Degrees',
+      certsTitle: 'Certifications',
+      inProgress: 'In progress',
+      degrees: [
+        { year: '2021',        title: 'International Baccalaureate (IB)',   org: 'Liceo de Costa Rica',               type: 'degree', current: false },
+        { year: '2022 — 2027', title: "Bachelor's in Systems Engineering",  org: 'National University of Costa Rica', type: 'degree', current: true  },
+      ],
+      certs: [
+        { year: '2026', title: 'Scrum Fundamentals Certified', org: 'SCRUMstudy',         type: 'cert', current: false },
+        { year: '2026', title: 'Claude Code Certified',        org: 'Anthropic',           type: 'cert', current: false },
+        { year: '2026', title: 'Claude 101',                   org: 'Anthropic Education', type: 'cert', current: false },
+        { year: '2026', title: 'Claude Code 101',              org: 'Anthropic Education', type: 'cert', current: false },
+        { year: '2026', title: 'Claude Platform 101',          org: 'Anthropic Education', type: 'cert', current: false },
+        { year: '2026', title: 'Google AI Essentials',         org: 'Google',              type: 'cert', current: false },
+        { year: '2026', title: 'Prompt Engineer Mastery',      org: 'Norai Connect',       type: 'cert', current: false },
+      ],
+    },
+    skills: {
+      sectionTag: 'Skills',
+      heading: 'KNOWLEDGE',
+      disclaimer: '* Percentages are self-estimated based on practical experience.',
+      groups: [
+        {
+          category: 'Backend',
+          items: [
+            { name: 'C++',  pct: 90 },
+            { name: 'Java', pct: 80 },
+            { name: 'C#',   pct: 75 },
+            { name: '.NET', pct: 70 },
+          ],
+        },
+        {
+          category: 'Frontend',
+          items: [
+            { name: 'HTML / CSS',   pct: 90 },
+            { name: 'JavaScript',   pct: 85 },
+            { name: 'React',        pct: 75 },
+            { name: 'Tailwind CSS', pct: 70 },
+          ],
+        },
+        {
+          category: 'Databases',
+          items: [
+            { name: 'MySQL',      pct: 80 },
+            { name: 'PostgreSQL', pct: 75 },
+          ],
+        },
+        {
+          category: 'Other',
+          items: [
+            { name: 'Git / GitHub',          pct: 85 },
+            { name: 'Artificial Intelligence', pct: 80 },
+            { name: 'Prompt Engineering',     pct: 80 },
+            { name: 'Scrum Methodology',      pct: 75 },
+          ],
+        },
+      ],
+    },
+    experience: {
+      sectionTag: 'Experience',
+      heading: 'JOURNEY',
+      workLabel: 'Work & Projects',
+      achievementsLabel: 'Achievements & Awards',
+      types: { work: 'Work', achievement: 'Achievement', project: 'Project' },
+      items: [
+        {
+          date: `2023 — ${y}`,
+          title: 'Private Programming Tutor',
+          org: 'National University of Costa Rica',
+          desc: 'Taught C++ to university students across multiple levels over several semesters, positively influencing their interest in programming.',
+          type: 'work',
+        },
+        {
+          date: '2025',
+          title: 'International Collegiate Programming Contest',
+          org: 'ICPC — National Round',
+          desc: 'Competed in the national round of the prestigious university programming competition. Solved algorithmic problems in C++ as part of a team under pressure.',
+          type: 'achievement',
+        },
+        {
+          date: '2025',
+          title: '2nd Place — Programming Tournament',
+          org: 'T.E.P. · UNA',
+          desc: 'Second place alongside a team of programmers, solving Codeforces and ICPC-style problems in C++.',
+          type: 'achievement',
+        },
+        {
+          date: '2025',
+          title: 'Mentor · School of Computer Science',
+          org: 'National University of Costa Rica',
+          desc: 'Mentorship role for first-year students, addressing questions about university life and programming.',
+          type: 'work',
+        },
+        {
+          date: `2025 — ${y}`,
+          title: 'Developer · OfficeCore System',
+          org: 'Datacor — University Project',
+          desc: 'Developed a human resources system for Datacor as part of a university team, centralizing processes previously managed through scattered Excel spreadsheets.',
+          type: 'project',
+        },
+      ],
+    },
+    projects: {
+      sectionTag: 'Projects',
+      heading: 'PROJECTS',
+      items: [
+        {
+          title: 'U-Vote',
+          subtitle: 'University Digital Voting Platform',
+          description: 'Digital voting web system for the UNA university community. Enables creating, sharing, and analyzing collective decision-making processes — from student elections to feedback surveys — with full transparency. The project represents an estimated $14,000 annual saving compared to the external voting services currently used by the institution.',
+          stack: ['React', 'C# / .NET', 'PostgreSQL', 'Vercel'],
+          live: 'https://u-vote-three.vercel.app/',
+          github: 'https://github.com/Benjamin-Solano/U-Vote',
+          stat: { value: '$14,000', label: 'estimated annual saving — UNA' },
+          org: 'National University of Costa Rica',
+          year: '2025',
+        },
+      ],
+    },
+    services: {
+      sectionTag: 'Services',
+      heading: 'I OFFER',
+      items: [
+        {
+          icon: 'Book',
+          title: 'Private Tutoring',
+          description: 'Personalized programming classes focused on C++, Java, and computer science fundamentals for university students. Practical methodology based on problem solving and algorithm understanding.',
+          tags: ['C++', 'Java', 'Algorithms', 'University'],
+        },
+        {
+          icon: 'Group',
+          title: 'Team Projects',
+          description: 'Open to participating in university, open source, or collaborative projects. I contribute to system design, backend architecture, frontend development, and database management.',
+          tags: ['React', 'C# / .NET', 'PostgreSQL', 'Full Stack'],
+        },
+        {
+          icon: 'HandCash',
+          title: 'Freelance',
+          description: 'Development of web applications, information systems, and custom solutions for businesses or entrepreneurs. From initial design to production deployment.',
+          tags: ['Web', 'Systems', 'Consulting', 'Deployment'],
+        },
+      ],
+    },
+    contact: {
+      sectionTag: 'Contact',
+      heading: 'CONTACT',
+      phone: 'Phone',
+      location: 'Location',
+      subtext: "I'm available for freelance projects, academic collaborations, or simply to chat about technology and software development. Feel free to reach out.",
+      sendMessage: 'Send a message',
+      viewGithub: 'View GitHub',
+    },
+  },
+}

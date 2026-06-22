@@ -1,17 +1,10 @@
 import { motion } from 'framer-motion'
 import { Mail } from 'iconoir-react'
 import { portfolio } from '../data/portfolioData'
+import { useT } from '../context/LanguageContext'
 import { EASE } from '../lib/motion'
 
 const { personal } = portfolio
-
-const CONTACT_ITEMS = [
-  { label: 'Email',     value: personal.email,                    href: `mailto:${personal.email}`                        },
-  { label: 'Teléfono',  value: personal.phone,                    href: `tel:${personal.phone.replace(/\s/g, '')}`        },
-  { label: 'GitHub',    value: 'github.com/Benjamin-Solano',      href: personal.github,    external: true                },
-  { label: 'LinkedIn',  value: 'inng-benjamin-solano',            href: personal.linkedin,  external: true                },
-  { label: 'Ubicación', value: personal.location,                 href: null                                              },
-]
 
 const ArrowOut = () => (
   <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -20,6 +13,17 @@ const ArrowOut = () => (
 )
 
 export default function Contact() {
+  const t = useT()
+  const { contact } = t
+
+  const contactItems = [
+    { label: 'Email',         value: personal.email,               href: `mailto:${personal.email}`                 },
+    { label: contact.phone,   value: personal.phone,               href: `tel:${personal.phone.replace(/\s/g, '')}` },
+    { label: 'GitHub',        value: 'github.com/Benjamin-Solano', href: personal.github,    external: true          },
+    { label: 'LinkedIn',      value: 'linkedin.com/in/inng-benjamin-solano', href: personal.linkedin, external: true },
+    { label: contact.location, value: personal.location,           href: null                                        },
+  ]
+
   return (
     <section id="contact" className="section-wrapper">
       {/* Section identifier */}
@@ -35,7 +39,7 @@ export default function Contact() {
           <span>07</span>
         </span>
         <div className="divider flex-1" />
-        <span className="section-tag">Contacto</span>
+        <span className="section-tag">{contact.sectionTag}</span>
       </motion.div>
 
       {/* Big label */}
@@ -47,7 +51,7 @@ export default function Contact() {
           transition={{ duration: 0.8, ease: EASE }}
           className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none"
         >
-          CONTACTO
+          {contact.heading}
         </motion.h2>
       </div>
 
@@ -59,14 +63,12 @@ export default function Contact() {
         transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
         className="text-sm leading-relaxed opacity-60 max-w-xl mb-14"
       >
-        Estoy disponible para proyectos freelance, colaboraciones académicas o
-        simplemente para conversar sobre tecnología y desarrollo de software.
-        No dudes en escribirme.
+        {contact.subtext}
       </motion.p>
 
       {/* Contact grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {CONTACT_ITEMS.map(({ label, value, href, external }, i) => (
+        {contactItems.map(({ label, value, href, external }, i) => (
           <motion.div
             key={label}
             initial={{ opacity: 0, y: 16 }}
@@ -103,13 +105,13 @@ export default function Contact() {
         className="mt-10 flex flex-wrap gap-4"
       >
         <a href={`mailto:${personal.email}`} className="btn-brutal-lg">
-          Enviar un mensaje
+          {contact.sendMessage}
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M2 6h8M6 2l4 4-4 4"/>
           </svg>
         </a>
         <a href={personal.github} target="_blank" rel="noopener noreferrer" className="btn-brutal-lg">
-          Ver GitHub
+          {contact.viewGithub}
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M2 8L8 2M3 2h5v5"/>
           </svg>

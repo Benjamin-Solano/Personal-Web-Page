@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useT } from './context/LanguageContext'
 import Navbar    from './components/Navbar'
 import Hero      from './components/Hero'
 import About     from './components/About'
@@ -10,6 +11,7 @@ import Services  from './components/Services'
 import Contact   from './components/Contact'
 
 export default function App() {
+  const t = useT()
   const [dark, setDark] = useState(() => {
     if (typeof window === 'undefined') return true
     const stored = localStorage.getItem('theme')
@@ -44,7 +46,7 @@ export default function App() {
       <footer className="section-wrapper py-8 divider">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 opacity-50 text-2xs tracking-widest2 uppercase">
           <span>Benjamín Alexander Solano Ortega</span>
-          <span>© {new Date().getFullYear()} — Todos los derechos reservados.</span>
+          <span>{t.footer}</span>
         </div>
       </footer>
     </div>

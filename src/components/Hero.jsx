@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { portfolio } from '../data/portfolioData'
+import { useT } from '../context/LanguageContext'
 import { EASE, wordVariants, fadeUp } from '../lib/motion'
 import ProfilePic from '../assets/ProfilePic.jpeg'
 import CvFile from '../assets/CV_Benjamin_Alexander_Solano_Ortega.pdf'
@@ -7,6 +8,8 @@ import CvFile from '../assets/CV_Benjamin_Alexander_Solano_Ortega.pdf'
 const { personal } = portfolio
 
 export default function Hero() {
+  const t = useT()
+
   return (
     <section id="hero" className="section-px min-h-screen flex flex-col pt-14 pb-10">
 
@@ -60,7 +63,7 @@ export default function Hero() {
               className="w-full aspect-[3/4] object-cover grayscale object-top"
             />
             <div className="border-t-2 border-ink-900 dark:border-cream-100 px-4 py-3 text-center">
-              <p className="section-label leading-relaxed">{personal.role}</p>
+              <p className="section-label leading-relaxed">{t.personal.role}</p>
               <p className="text-2xs tracking-widest2 uppercase opacity-30 mt-1">{personal.location}</p>
             </div>
           </div>
@@ -79,7 +82,7 @@ export default function Hero() {
         {/* Left: role + location + badge */}
         <div className="flex flex-col gap-1">
           <motion.p variants={fadeUp(0)} className="text-xs tracking-widest2 uppercase opacity-60">
-            {personal.role}
+            {t.personal.role}
           </motion.p>
           <motion.p variants={fadeUp(0.05)} className="text-xs tracking-widest2 uppercase opacity-40">
             {personal.university}
@@ -94,7 +97,7 @@ export default function Hero() {
               <span className="animate-ping absolute inset-0 rounded-full bg-green-500 opacity-70" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
             </span>
-            Disponible
+            {t.hero.available}
           </motion.div>
         </div>
 
@@ -113,7 +116,7 @@ export default function Hero() {
             </svg>
           </a>
           <a href={CvFile} download="CV_Benjamin_Alexander_Solano_Ortega.pdf" className="btn-brutal">
-            Descargar CV
+            {t.hero.downloadCV}
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 2v6M2 6l3 3 3-3"/>
             </svg>

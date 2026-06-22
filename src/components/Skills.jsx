@@ -1,10 +1,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Code } from 'iconoir-react'
-import { portfolio } from '../data/portfolioData'
+import { useT } from '../context/LanguageContext'
 import { EASE } from '../lib/motion'
-
-const { skills } = portfolio
 
 const SEGMENTS = 16
 
@@ -52,6 +50,8 @@ function SkillGroup({ category, items, delay, inView }) {
 }
 
 export default function Skills() {
+  const t = useT()
+  const { skills } = t
   const ref    = useRef(null)
   const inView = useInView(ref, { once: false, margin: '-100px' })
 
@@ -70,7 +70,7 @@ export default function Skills() {
           <span>03</span>
         </span>
         <div className="divider flex-1" />
-        <span className="section-tag">Habilidades</span>
+        <span className="section-tag">{skills.sectionTag}</span>
       </motion.div>
 
       {/* Section big label */}
@@ -82,13 +82,13 @@ export default function Skills() {
         className="overflow-hidden mb-12"
       >
         <h2 className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none">
-          CONOCIMIENTO
+          {skills.heading}
         </h2>
       </motion.div>
 
       {/* Skills grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {skills.map((group, i) => (
+        {skills.groups.map((group, i) => (
           <SkillGroup
             key={group.category}
             {...group}
@@ -106,7 +106,7 @@ export default function Skills() {
         transition={{ delay: 0.6, duration: 0.6, ease: EASE }}
         className="mt-6 text-2xs opacity-30 tracking-widest2"
       >
-        * Los porcentajes son auto-estimados basados en experiencia práctica.
+        {skills.disclaimer}
       </motion.p>
     </section>
   )

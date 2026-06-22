@@ -1,22 +1,15 @@
 import { motion } from 'framer-motion'
 import { Journal, Medal } from 'iconoir-react'
-import { portfolio } from '../data/portfolioData'
+import { useT } from '../context/LanguageContext'
 import { EASE } from '../lib/motion'
 
-const { experience } = portfolio
-
-const TYPE_STYLES = {
-  work:        { label: 'Trabajo',   cls: 'type-work'        },
-  achievement: { label: 'Logro',     cls: 'type-achievement' },
-  project:     { label: 'Proyecto',  cls: 'type-project'     },
-}
-
-function EntryList({ items, startIndex }) {
+function EntryList({ items, types, startIndex }) {
   return (
     <div className="brutal-card">
       {items.map(({ date, title, org, desc, type }, i) => {
-        const typeStyle = TYPE_STYLES[type] || TYPE_STYLES.work
         const num = String(startIndex + i + 1).padStart(2, '0')
+        const typeLabel = types[type] || type
+        const typeCls = type === 'work' ? 'type-work' : type === 'achievement' ? 'type-achievement' : 'type-project'
 
         return (
           <motion.div
@@ -42,8 +35,8 @@ function EntryList({ items, startIndex }) {
             <div>
               <div className="flex flex-wrap items-center gap-3 mb-2">
                 <span className="text-2xs tracking-widest2 uppercase opacity-40">{date}</span>
-                <span className={`text-2xs tracking-widest2 uppercase ${typeStyle.cls}`}>
-                  {typeStyle.label}
+                <span className={`text-2xs tracking-widest2 uppercase ${typeCls}`}>
+                  {typeLabel}
                 </span>
               </div>
               <h3 className="text-sm md:text-base font-mono font-medium tracking-tight mb-1
@@ -61,8 +54,11 @@ function EntryList({ items, startIndex }) {
 }
 
 export default function Experience() {
-  const mainEntries = experience.filter(e => e.type === 'work' || e.type === 'project')
-  const achievements = experience.filter(e => e.type === 'achievement')
+  const t = useT()
+  const { experience } = t
+
+  const mainEntries = experience.items.filter(e => e.type === 'work' || e.type === 'project')
+  const achievements = experience.items.filter(e => e.type === 'achievement')
 
   return (
     <section id="experience" className="section-wrapper">
@@ -79,7 +75,7 @@ export default function Experience() {
           <span>04</span>
         </span>
         <div className="divider flex-1" />
-        <span className="section-tag">Experiencia</span>
+        <span className="section-tag">{experience.sectionTag}</span>
       </motion.div>
 
       {/* Big label */}
@@ -91,7 +87,7 @@ export default function Experience() {
           transition={{ duration: 0.8, ease: EASE }}
           className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none"
         >
-          TRAYECTORIA
+          {experience.heading}
         </motion.h2>
       </div>
 
@@ -104,11 +100,13 @@ export default function Experience() {
         className="flex items-center gap-3 mb-4"
       >
         <Journal width={12} height={12} strokeWidth={2} className="opacity-50" />
-        <p className="text-2xs tracking-widest2 uppercase opacity-50 border-l-2 border-ink-900 dark:border-cream-100 pl-3">Trabajos &amp; Proyectos</p>
+        <p className="text-2xs tracking-widest2 uppercase opacity-50 border-l-2 border-ink-900 dark:border-cream-100 pl-3">
+          {experience.workLabel}
+        </p>
         <div className="divider flex-1" />
       </motion.div>
 
-      <EntryList items={mainEntries} startIndex={0} />
+      <EntryList items={mainEntries} types={experience.types} startIndex={0} />
 
       {/* Logros */}
       <motion.div
@@ -119,11 +117,13 @@ export default function Experience() {
         className="flex items-center gap-3 mt-12 mb-4"
       >
         <Medal width={12} height={12} strokeWidth={2} className="opacity-50" />
-        <p className="text-2xs tracking-widest2 uppercase opacity-50 border-l-2 border-ink-900 dark:border-cream-100 pl-3">Logros &amp; Reconocimientos</p>
+        <p className="text-2xs tracking-widest2 uppercase opacity-50 border-l-2 border-ink-900 dark:border-cream-100 pl-3">
+          {experience.achievementsLabel}
+        </p>
         <div className="divider flex-1" />
       </motion.div>
 
-      <EntryList items={achievements} startIndex={mainEntries.length} />
+      <EntryList items={achievements} types={experience.types} startIndex={mainEntries.length} />
     </section>
   )
 }

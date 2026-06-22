@@ -1,19 +1,14 @@
 import { motion } from 'framer-motion'
-import { Sparks, GitFork } from 'iconoir-react'
-import { portfolio } from '../data/portfolioData'
+import { Sparks } from 'iconoir-react'
+import { useT } from '../context/LanguageContext'
 import { EASE, reveal } from '../lib/motion'
 
-// Save screenshots to src/assets/ with these exact filenames:
-//   uvote-dark.jpg  — captura con fondo oscuro
-//   uvote-light.jpg — captura con fondo claro
 import UVoteDark  from '../assets/uvote-dark.jpg'
 import UVoteLight from '../assets/uvote-light.jpg'
 
 const IMAGES = {
   uvote: { dark: UVoteDark, light: UVoteLight },
 }
-
-const { projects } = portfolio
 
 const ArrowOut = () => (
   <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -34,7 +29,6 @@ function ProjectCard({ project, index }) {
                       border-b-2 lg:border-b-0 lg:border-r-2
                       border-ink-900 dark:border-cream-100">
         <div>
-          {/* Meta + title */}
           <p className="text-2xs tracking-widest2 uppercase opacity-40 mb-2">
             {project.org} · {project.year}
           </p>
@@ -49,7 +43,6 @@ function ProjectCard({ project, index }) {
             {project.description}
           </p>
 
-          {/* Stack tags */}
           <div className="flex flex-wrap gap-2 mb-6">
             {project.stack.map(tech => (
               <span key={tech} className="tag-pill">{tech}</span>
@@ -58,7 +51,6 @@ function ProjectCard({ project, index }) {
         </div>
 
         <div className="flex flex-col gap-4">
-          {/* Stat */}
           <div className="brutal-card-sm p-4 flex items-baseline gap-3">
             <p className="font-display text-3xl leading-none tracking-tight">
               {project.stat.value}
@@ -68,7 +60,6 @@ function ProjectCard({ project, index }) {
             </p>
           </div>
 
-          {/* Links */}
           <div className="flex gap-3">
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn-brutal">
               GitHub <ArrowOut />
@@ -80,7 +71,6 @@ function ProjectCard({ project, index }) {
       {/* RIGHT — diagonal split image */}
       {imgs && (
         <div className="relative overflow-hidden min-h-[260px] lg:min-h-0">
-          {/* Dark — left half */}
           <img
             src={imgs.dark}
             alt={`${project.title} dark mode`}
@@ -88,7 +78,6 @@ function ProjectCard({ project, index }) {
             style={{ clipPath: 'polygon(0 0, 58% 0, 42% 100%, 0 100%)' }}
             draggable={false}
           />
-          {/* Light — right half */}
           <img
             src={imgs.light}
             alt={`${project.title} light mode`}
@@ -96,19 +85,13 @@ function ProjectCard({ project, index }) {
             style={{ clipPath: 'polygon(58% 0, 100% 0, 100% 100%, 42% 100%)' }}
             draggable={false}
           />
-          {/* Diagonal divider line */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           >
-            <line
-              x1="58" y1="0" x2="42" y2="100"
-              stroke="currentColor" strokeWidth="1.5"
-              vectorEffect="non-scaling-stroke"
-            />
+            <line x1="58" y1="0" x2="42" y2="100" stroke="currentColor" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
           </svg>
-          {/* Mode labels */}
           <span className="absolute top-3 left-3 section-tag bg-ink-900 text-cream-50 dark:bg-cream-100 dark:text-ink-900 text-[10px]">
             Dark
           </span>
@@ -122,6 +105,9 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
+  const t = useT()
+  const { projects } = t
+
   return (
     <section id="projects" className="section-wrapper">
       {/* Section identifier */}
@@ -137,7 +123,7 @@ export default function Projects() {
           <span>05</span>
         </span>
         <div className="divider flex-1" />
-        <span className="section-tag">Proyectos</span>
+        <span className="section-tag">{projects.sectionTag}</span>
       </motion.div>
 
       {/* Big label */}
@@ -149,13 +135,12 @@ export default function Projects() {
           transition={{ duration: 0.8, ease: EASE }}
           className="font-display text-[10vw] sm:text-[8vw] md:text-[6vw] leading-none tracking-tight select-none"
         >
-          PROYECTOS
+          {projects.heading}
         </motion.h2>
       </div>
 
-      {/* Projects list */}
       <div className="flex flex-col gap-8">
-        {projects.map((project, i) => (
+        {projects.items.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}
       </div>

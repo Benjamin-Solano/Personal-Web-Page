@@ -1,16 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { EASE } from '../lib/motion'
-
-const NAV_LINKS = [
-  { label: 'Sobre mí',    href: '#about'      },
-  { label: 'Educación',   href: '#education'  },
-  { label: 'Habilidades', href: '#skills'     },
-  { label: 'Experiencia', href: '#experience' },
-  { label: 'Proyectos',   href: '#projects'   },
-  { label: 'Servicios',   href: '#services'   },
-  { label: 'Contacto',    href: '#contact'    },
-]
+import { useLang, useT } from '../context/LanguageContext'
 
 const SunIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -34,6 +25,8 @@ const MoonIcon = () => (
 
 export default function Navbar({ dark, setDark }) {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { toggle } = useLang()
+  const t = useT()
 
   return (
     <>
@@ -52,7 +45,7 @@ export default function Navbar({ dark, setDark }) {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-2">
-            {NAV_LINKS.map(({ label, href }) => (
+            {t.nav.links.map(({ label, href }) => (
               <a
                 key={href}
                 href={href}
@@ -66,7 +59,17 @@ export default function Navbar({ dark, setDark }) {
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            {/* Language toggle */}
+            <button
+              onClick={toggle}
+              aria-label="Cambiar idioma / Switch language"
+              className="btn-brutal px-2.5 py-1.5 text-2xs font-mono tracking-widest2"
+            >
+              {t.nav.langToggle}
+            </button>
+
+            {/* Theme toggle */}
             <button
               onClick={() => setDark(!dark)}
               aria-label="Cambiar tema"
@@ -107,7 +110,7 @@ export default function Navbar({ dark, setDark }) {
                    border-b-2 border-ink-900 dark:border-cream-100
                    px-6 py-6 flex flex-col gap-3 md:hidden"
       >
-        {NAV_LINKS.map(({ label, href }) => (
+        {t.nav.links.map(({ label, href }) => (
           <a
             key={href}
             href={href}
