@@ -65,8 +65,9 @@ export const translations = {
         { year: '2026', title: 'Claude 101',                   org: 'Anthropic Education', type: 'cert', current: false },
         { year: '2026', title: 'Claude Code 101',              org: 'Anthropic Education', type: 'cert', current: false },
         { year: '2026', title: 'Claude Platform 101',          org: 'Anthropic Education', type: 'cert', current: false },
-        { year: '2026', title: 'Google AI Essentials',         org: 'Google',              type: 'cert', current: false },
-        { year: '2026', title: 'Prompt Engineer Mastery',      org: 'Norai Connect',       type: 'cert', current: false },
+        { year: '2026', title: 'Google AI Essentials',              org: 'Google',              type: 'cert', current: false },
+        { year: '2026', title: 'Google AI Professional Certificate', org: 'Google',              type: 'cert', current: false },
+        { year: '2026', title: 'Prompt Engineer Mastery',            org: 'Norai Connect',       type: 'cert', current: false },
       ],
     },
     skills: {
@@ -270,8 +271,9 @@ export const translations = {
         { year: '2026', title: 'Claude 101',                   org: 'Anthropic Education', type: 'cert', current: false },
         { year: '2026', title: 'Claude Code 101',              org: 'Anthropic Education', type: 'cert', current: false },
         { year: '2026', title: 'Claude Platform 101',          org: 'Anthropic Education', type: 'cert', current: false },
-        { year: '2026', title: 'Google AI Essentials',         org: 'Google',              type: 'cert', current: false },
-        { year: '2026', title: 'Prompt Engineer Mastery',      org: 'Norai Connect',       type: 'cert', current: false },
+        { year: '2026', title: 'Google AI Essentials',              org: 'Google',              type: 'cert', current: false },
+        { year: '2026', title: 'Google AI Professional Certificate', org: 'Google',              type: 'cert', current: false },
+        { year: '2026', title: 'Prompt Engineer Mastery',            org: 'Norai Connect',       type: 'cert', current: false },
       ],
     },
     skills: {
